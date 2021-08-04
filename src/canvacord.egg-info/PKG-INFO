@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: canvacord
-Version: 0.1.5
+Version: 0.1.7
 Summary: A Python Version of Canvacord
 Home-page: https://github.com/BlazenBoi/canvacord.py
 Author: blazen
@@ -45,7 +45,7 @@ python -m pip install canvacord
 ```python
 import discord
 from discord.ext import commands
-from canvacord.rankcard import rankcard
+from canvacord import rankcard
 
 client = commands.Bot(command_prefix="!")
 

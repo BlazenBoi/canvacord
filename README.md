@@ -28,7 +28,7 @@ python -m pip install canvacord
 ```python
 import discord
 from discord.ext import commands
-from canvacord.rankcard import rankcard
+from canvacord import rankcard
 
 client = commands.Bot(command_prefix="!")
 
