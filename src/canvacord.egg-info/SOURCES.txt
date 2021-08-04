@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/canvacord/__init__.py
+src/canvacord/rankcard.py
+src/canvacord.egg-info/PKG-INFO
+src/canvacord.egg-info/SOURCES.txt
+src/canvacord.egg-info/dependency_links.txt
+src/canvacord.egg-info/top_level.txt

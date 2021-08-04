@@ -1,0 +1,11 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "pillow",
+    "discord",
+    "asyncio",
+    "aiohttp",
+    "typing"
+]
+build-backend = "setuptools.build_meta"
