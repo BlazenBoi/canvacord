@@ -23,17 +23,17 @@ python -m pip install canvacord
 💡 This library requires **[discord.py](https://github.com/Rapptz/discord.py)**.
 
 
-## Creating a Rank Card
+## Creating Images
 
 ```python
 import discord
 from discord.ext import commands
-from canvacord import rankcard
+from canvacord import rankcard, trigger
 
 client = commands.Bot(command_prefix="!")
 
 @client.comand()
-async def test(ctx):
+async def rankcard(ctx):
     user = ctx.author
     username = ctx.author.name + "#" + ctx.author.discriminator
     currentxp = 1
@@ -44,6 +44,13 @@ async def test(ctx):
     background = None
     image = await rankcard(user=user, username=username, currentxp=currentxp, lastxp=lastxp, nextxp=nextxp, level=current_level, rank=current_rank, background=background)
     file = discord.File(filename="rankcard.png", fp=image)
+    await ctx.send(file=file)
+
+@client.comand()
+async def triggered(ctx):
+    user = ctx.author
+    image = await trigger(user)
+    file = discord.File(filename="triggered.gif", fp=image)
     await ctx.send(file=file)
     
 
