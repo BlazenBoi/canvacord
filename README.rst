@@ -8,8 +8,8 @@ Table of contents
 
 1. `Installation <#installation>`__
 2. `Examples <#examples>`__
-3. `Creating Images <#Creating-Images>`__
-4. `Downloads <#Links>`__
+3. `Creating Images <#creating-images>`__
+4. `Downloads <#links>`__
 
 Installation
 ~~~~~~~~~~~~~~~~~
