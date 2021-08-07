@@ -9,9 +9,9 @@ A copy of [canvacord](https://www.npmjs.com/package/canvacord) made in python!
 # Table of contents
 1. [Installation](#installation)
 2. [Examples](#examples)
-3. [creating-images](#creating-images)
-4. [links](#links)
-5. [downloads](#downloads)
+3. [Creating Images](#creating-images)
+4. [Links](llinks)
+5. [Downloads](#downloads)
 
 # Installation
 
