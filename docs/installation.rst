@@ -2,9 +2,7 @@
 Installation
 ============
 
-Install the package with pip::
-
-.. code-block:: python
+Install the package with pip:: python
 
     from discord.ext import commands
     from dislash import *
@@ -17,5 +15,3 @@ Install the package with pip::
         await interaction.reply("Hello!")
     
     bot.run("BOT_TOKEN")
-
-    $ pip install read-the-docs-template
