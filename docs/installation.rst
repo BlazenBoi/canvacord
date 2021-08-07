@@ -6,12 +6,11 @@ Install the package with pip::
 
 Mac / Linux
 
-    $ pip install canvacord
-
+    `$ pip install canvacord`
 
 Windows
 
-    $ python -m pip install canvacord
+    `$ python -m pip install canvacord`
 
 .. code-block:: python
 
