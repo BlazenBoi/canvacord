@@ -9,7 +9,7 @@ A copy of [canvacord](https://www.npmjs.com/package/canvacord) made in python!
 ### Table of contents
 1. [Installation](#installation)
 2. [Examples](#examples)
-3. [Creating_Images](#creating_Images)
+3. [Creating Images](#Creating-Images)
 4. [Downloads](#Links)
 
 # Installation
@@ -30,7 +30,7 @@ python -m pip install canvacord
 💡 This library requires **[discord.py](https://github.com/Rapptz/discord.py)**.
 
 
-## Creating_Images
+## Creating-Images
 
 ```python
 import discord
