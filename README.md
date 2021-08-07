@@ -28,7 +28,7 @@ python -m pip install canvacord
 ```python
 import discord
 from discord.ext import commands
-from canvacord import rankcard, trigger
+import canvacord
 
 client = commands.Bot(command_prefix="!")
 
@@ -42,18 +42,24 @@ async def rankcard(ctx):
     current_level = 1
     current_rank = 1
     background = None
-    image = await rankcard(user=user, username=username, currentxp=currentxp, lastxp=lastxp, nextxp=nextxp, level=current_level, rank=current_rank, background=background)
+    image = await canvacord.rankcard(user=user, username=username, currentxp=currentxp, lastxp=lastxp, nextxp=nextxp, level=current_level, rank=current_rank, background=background)
     file = discord.File(filename="rankcard.png", fp=image)
     await ctx.send(file=file)
 
 @client.comand()
 async def triggered(ctx):
     user = ctx.author
-    image = await trigger(user)
+    image = await canvacord.trigger(user)
     file = discord.File(filename="triggered.gif", fp=image)
     await ctx.send(file=file)
-    
 
+@client.comand()
+async def communism(ctx):
+    user = ctx.author
+    image = await canvacord.communism(user)
+    file = discord.File(filename="communism.gif", fp=image)
+    await ctx.send(file=file)
+    
 client.run("BOT_TOKEN")
 ```
 
