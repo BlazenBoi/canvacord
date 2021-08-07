@@ -3,6 +3,14 @@
 A copy of `canvacord <https://www.npmjs.com/package/canvacord>`__ made
 in python!
 
+Table of contents
+~~~~~~~~~~~~~~~~~
+
+1. `Installation <#installation>`__
+2. `Examples <#examples>`__
+3. `Creating Images <#Creating-Images>`__
+4. `Downloads <#Links>`__
+
 Installation
 ============
 
@@ -26,7 +34,7 @@ Examples
 💡 This library requires
 **`discord.py <https://github.com/Rapptz/discord.py>`__**.
 
-Creating Images
+Creating-Images
 ---------------
 
 .. code:: python
@@ -84,8 +92,7 @@ Creating Images
 Links
 =====
 
--  **`PyPi <https://pypi.org/project/canvacord>`__**
--  **`Our Discord <https://discord.gg/mPU3HybBs9>`__**
+|Discord| |PyPi|
 
 Downloads
 =========
