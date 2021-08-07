@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: canvacord
-Version: 0.1.23
+Version: 0.1.27
 Summary: A Python Version of Canvacord
 Home-page: https://github.com/BlazenBoi/canvacord.py
 Author: blazen
@@ -15,6 +15,7 @@ Classifier: Operating System :: OS Independent
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
+License-File: AUTHORS.rst
 
 [![Discord](https://discord.com/api/guilds/872291125547921459/embed.png)](https://discord.gg/mPU3HybBs9)
 [![PyPi](https://img.shields.io/pypi/v/canvacord.svg)](https://pypi.org/project/canvacord)
@@ -22,6 +23,14 @@ License-File: LICENSE
 
 A copy of [canvacord](https://www.npmjs.com/package/canvacord) made in python!
 
+
+
+# Table of contents
+1. [Installation](#installation)
+2. [Examples](#examples)
+3. [Creating Images](#creating-images)
+4. [Links](#links)
+5. [Downloads](#downloads)
 
 # Installation
 
@@ -41,7 +50,7 @@ python -m pip install canvacord
 💡 This library requires **[discord.py](https://github.com/Rapptz/discord.py)**.
 
 
-## Creating Images
+## Creating-Images
 
 ```python
 import discord
@@ -77,14 +86,43 @@ async def communism(ctx):
     image = await canvacord.communism(user)
     file = discord.File(filename="communism.gif", fp=image)
     await ctx.send(file=file)
+
+@client.comand()
+async def jail(ctx):
+    user = ctx.author
+    image = await canvacord.jail(user)
+    file = discord.File(filename="jail.png", fp=image)
+    await ctx.send(file=file)
+
+@client.comand()
+async def gay(ctx):
+    user = ctx.author
+    image = await canvacord.gay(user)
+    file = discord.File(filename="gay.png", fp=image)
+    await ctx.send(file=file)
+
+@client.comand()
+async def hitler(ctx):
+    user = ctx.author
+    image = await canvacord.hitler(user)
+    file = discord.File(filename="hitler.png", fp=image)
+    await ctx.send(file=file)
+
+@client.comand()
+async def spank(ctx):
+    user1 = ctx.author
+    user2 = ctx.author
+    image = await canvacord.spank(user1, user2)
+    file = discord.File(filename="spank.png", fp=image)
+    await ctx.send(file=file)
     
 client.run("BOT_TOKEN")
 ```
 
 
 # Links
-- **[PyPi](https://pypi.org/project/canvacord)**
-- **[Our Discord](https://discord.gg/mPU3HybBs9)**
+[![Discord](https://discord.com/api/guilds/872291125547921459/embed.png)](https://discord.gg/mPU3HybBs9)
+[![PyPi](https://img.shields.io/pypi/v/canvacord.svg)](https://pypi.org/project/canvacord)
 
 
 # Downloads
@@ -93,4 +131,5 @@ client.run("BOT_TOKEN")
 [![Downloads](https://pepy.tech/badge/canvacord)](https://pepy.tech/project/canvacord)
 [![Downloads](https://pepy.tech/badge/canvacord/month)](https://pepy.tech/project/canvacord)
 ![Downloads](https://pepy.tech/badge/canvacord/week)
+
 

@@ -10,7 +10,7 @@ A copy of [canvacord](https://www.npmjs.com/package/canvacord) made in python!
 1. [Installation](#installation)
 2. [Examples](#examples)
 3. [Creating Images](#creating-images)
-4. [Links](llinks)
+4. [Links](#links)
 5. [Downloads](#downloads)
 
 # Installation
@@ -80,6 +80,21 @@ async def gay(ctx):
     user = ctx.author
     image = await canvacord.gay(user)
     file = discord.File(filename="gay.png", fp=image)
+    await ctx.send(file=file)
+
+@client.comand()
+async def hitler(ctx):
+    user = ctx.author
+    image = await canvacord.hitler(user)
+    file = discord.File(filename="hitler.png", fp=image)
+    await ctx.send(file=file)
+
+@client.comand()
+async def spank(ctx):
+    user1 = ctx.author
+    user2 = ctx.author
+    image = await canvacord.spank(user1, user2)
+    file = discord.File(filename="spank.png", fp=image)
     await ctx.send(file=file)
     
 client.run("BOT_TOKEN")
