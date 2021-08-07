@@ -59,6 +59,20 @@ async def communism(ctx):
     image = await canvacord.communism(user)
     file = discord.File(filename="communism.gif", fp=image)
     await ctx.send(file=file)
+
+@client.comand()
+async def jail(ctx):
+    user = ctx.author
+    image = await canvacord.jail(user)
+    file = discord.File(filename="jail.png", fp=image)
+    await ctx.send(file=file)
+
+@client.comand()
+async def gay(ctx):
+    user = ctx.author
+    image = await canvacord.gay(user)
+    file = discord.File(filename="gay.png", fp=image)
+    await ctx.send(file=file)
     
 client.run("BOT_TOKEN")
 ```

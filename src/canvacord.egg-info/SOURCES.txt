@@ -9,5 +9,7 @@ src/canvacord.egg-info/dependency_links.txt
 src/canvacord.egg-info/top_level.txt
 src/canvacord/generators/__init__.py
 src/canvacord/generators/communism.py
+src/canvacord/generators/gay.py
+src/canvacord/generators/jail.py
 src/canvacord/generators/rankcard.py
 src/canvacord/generators/trigger.py

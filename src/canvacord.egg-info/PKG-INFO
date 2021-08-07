@@ -1,12 +1,13 @@
 Metadata-Version: 2.1
 Name: canvacord
-Version: 0.1.20
+Version: 0.1.23
 Summary: A Python Version of Canvacord
 Home-page: https://github.com/BlazenBoi/canvacord.py
 Author: blazen
 Author-email: contact@fireballbot.com
 License: UNKNOWN
 Project-URL: Bug Tracker, https://github.com/BlazenBoi/canvacord.py/issues
+Project-URL: Discord Server, https://discord.com/invite/mPU3HybBs9
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
