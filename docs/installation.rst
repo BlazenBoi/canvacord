@@ -4,7 +4,14 @@ Installation
 
 Install the package with pip::
 
-    $ pip install read-the-docs-template
+Mac / Linux
+
+    $ pip install canvacord
+
+
+Windows
+
+    $ python -m pip install canvacord
 
 .. code-block:: python
 
