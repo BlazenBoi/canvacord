@@ -12,7 +12,7 @@ Table of contents
 4. `Downloads <#Links>`__
 
 Installation
-============
+~~~~~~~~~~~~~~~~~
 
 Run any of these commands in terminal:
 
@@ -29,7 +29,7 @@ Windows
     python -m pip install canvacord
 
 Examples
-========
+~~~~~~~~~~~~~~~~~
 
 💡 This library requires
 **`discord.py <https://github.com/Rapptz/discord.py>`__**.
@@ -90,12 +90,12 @@ Creating-Images
     client.run("BOT_TOKEN")
 
 Links
-=====
+~~~~~~~~~~~~~~~~~
 
 |Discord| |PyPi|
 
 Downloads
-=========
+~~~~~~~~~~~~~~~~~
 
 |Downloads| |Downloads| |Downloads|
 
