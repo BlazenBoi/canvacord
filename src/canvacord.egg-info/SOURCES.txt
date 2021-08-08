@@ -10,6 +10,11 @@ src/canvacord.egg-info/SOURCES.txt
 src/canvacord.egg-info/dependency_links.txt
 src/canvacord.egg-info/top_level.txt
 src/canvacord/generators/__init__.py
+src/canvacord/generators/aborted.py
+src/canvacord/generators/affect.py
+src/canvacord/generators/airpods.py
+src/canvacord/generators/america.py
+src/canvacord/generators/bed.py
 src/canvacord/generators/communism.py
 src/canvacord/generators/gay.py
 src/canvacord/generators/hitler.py

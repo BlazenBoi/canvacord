@@ -5,3 +5,8 @@ from .gay import gay
 from .jail import jail
 from .hitler import hitler
 from .spank import spank
+from .aborted import aborted
+from .affect import affect
+from .airpods import airpods
+from .america import america
+from .bed import bed

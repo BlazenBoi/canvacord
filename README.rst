@@ -94,12 +94,48 @@ Creating-Images
         file = discord.File(filename="hitler.png", fp=image)
         await ctx.send(file=file)
 
+    @client.command()
+    async def aborted(ctx):
+        user = ctx.author
+        image = await canvacord.aborted(user)
+        file = discord.File(filename="aborted.png", fp=image)
+        await ctx.send(file=file)
+
+    @client.command()
+    async def affect(ctx):
+        user = ctx.author
+        image = await canvacord.affect(user)
+        file = discord.File(filename="affect.png", fp=image)
+        await ctx.send(file=file)
+
+    @client.command()
+    async def airpods(ctx):
+        user = ctx.author
+        image = await canvacord.airpods(user)
+        file = discord.File(filename="airpods.gif", fp=image)
+        await ctx.send(file=file)
+
+    @client.command()
+    async def america(ctx):
+        user = ctx.author
+        image = await canvacord.america(user)
+        file = discord.File(filename="america.gif", fp=image)
+        await ctx.send(file=file)
+
     @client.comand()
     async def spank(ctx):
         user1 = ctx.author
         user2 = ctx.author
         image = await canvacord.spank(user1, user2)
         file = discord.File(filename="spank.png", fp=image)
+        await ctx.send(file=file)
+
+    @client.comand()
+    async def bed(ctx):
+        user1 = ctx.author
+        user2 = ctx.author
+        image = await canvacord.bed(user1, user2)
+        file = discord.File(filename="bed.png", fp=image)
         await ctx.send(file=file)
         
     client.run("BOT_TOKEN")

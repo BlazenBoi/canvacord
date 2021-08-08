@@ -5,3 +5,8 @@ from .generators import gay
 from .generators import jail
 from .generators import hitler
 from .generators import spank
+from .generators import aborted
+from .generators import affect
+from .generators import airpods
+from .generators import america
+from .generators import bed

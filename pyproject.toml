@@ -6,6 +6,7 @@ requires = [
     "discord",
     "asyncio",
     "aiohttp",
-    "typing"
+    "typing",
+    "datetime"
 ]
 build-backend = "setuptools.build_meta"
