@@ -10,3 +10,5 @@ from .generators import affect
 from .generators import airpods
 from .generators import america
 from .generators import bed
+from .generators import wanted
+from .generators import jokeoverhead
