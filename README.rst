@@ -122,6 +122,20 @@ Creating-Images
         file = discord.File(filename="america.gif", fp=image)
         await ctx.send(file=file)
 
+    @client.command()
+    async def wanted(ctx):
+        user = ctx.author
+        image = await canvacord.wanted(user)
+        file = discord.File(filename="wanted.png", fp=image)
+        await ctx.send(file=file)
+
+    @client.command()
+    async def joke(ctx):
+        user = ctx.author
+        image = await canvacord.jokeoverhead(user)
+        file = discord.File(filename="jokeoverhead.png", fp=image)
+        await ctx.send(file=file)
+
     @client.comand()
     async def spank(ctx):
         user1 = ctx.author
