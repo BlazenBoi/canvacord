@@ -40,7 +40,7 @@ import canvacord
 
 client = commands.Bot(command_prefix="!")
 
-@client.command()
+@client.comand()
 async def rankcard(ctx):
     user = ctx.author
     username = ctx.author.name + "#" + ctx.author.discriminator
@@ -54,35 +54,35 @@ async def rankcard(ctx):
     file = discord.File(filename="rankcard.png", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def triggered(ctx):
     user = ctx.author
     image = await canvacord.trigger(user)
     file = discord.File(filename="triggered.gif", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def communism(ctx):
     user = ctx.author
     image = await canvacord.communism(user)
     file = discord.File(filename="communism.gif", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def jail(ctx):
     user = ctx.author
     image = await canvacord.jail(user)
     file = discord.File(filename="jail.png", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def gay(ctx):
     user = ctx.author
     image = await canvacord.gay(user)
     file = discord.File(filename="gay.png", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def hitler(ctx):
     user = ctx.author
     image = await canvacord.hitler(user)
@@ -131,7 +131,7 @@ async def joke(ctx):
     file = discord.File(filename="jokeoverhead.png", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def spank(ctx):
     user1 = ctx.author
     user2 = ctx.author
@@ -139,7 +139,7 @@ async def spank(ctx):
     file = discord.File(filename="spank.png", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def bed(ctx):
     user1 = ctx.author
     user2 = ctx.author

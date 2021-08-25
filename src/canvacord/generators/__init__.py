@@ -12,3 +12,5 @@ from .america import america
 from .bed import bed
 from .wanted import wanted
 from .jokeoverhead import jokeoverhead
+from .versionchecker import checkversion
+from .avatar import avatar

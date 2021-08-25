@@ -7,6 +7,7 @@ import aiohttp
 from io import BytesIO
 import discord
 from typing import Union
+from canvacord.generators.versionchecker import checkversion
 
 async def getavatar(user: Union[discord.User, discord.Member]) -> bytes:
     session = aiohttp.ClientSession(loop=asyncio.get_event_loop())
@@ -47,21 +48,41 @@ async def rankcard(user, username, currentxp, lastxp, nextxp, level, rank, backg
         basenextxp = nextxp
         baselastxp = lastxp
         if level >= 1000:
-            level = level / 1000
-            level = round(level, 1)
-            level = str(level) + "K"
+            if level >= 1000000:
+                level = level / 1000000
+                level = round(level, 1)
+                level = str(level) + "M"
+            else:
+                level = level / 1000
+                level = round(level, 1)
+                level = str(level) + "K"
         if currentxp >= 1000:
-            currentxp = currentxp / 1000
-            currentxp = round(currentxp, 1)
-            currentxp = str(currentxp) + "K"
+            if currentxp >= 1000000:
+                currentxp = currentxp / 1000000
+                currentxp = round(currentxp, 1)
+                currentxp = str(currentxp) + "M"
+            else:
+                currentxp = currentxp / 1000
+                currentxp = round(currentxp, 1)
+                currentxp = str(currentxp) + "K"
         if nextxp >= 1000:
-            nextxp = nextxp / 1000
-            nextxp = round(nextxp, 1)
-            nextxp = str(nextxp) + "K"
+            if nextxp >= 1000000:
+                nextxp = nextxp / 1000000
+                nextxp = round(nextxp, 1)
+                nextxp = str(nextxp) + "M"
+            else:
+                nextxp = nextxp / 1000
+                nextxp = round(nextxp, 1)
+                nextxp = str(nextxp) + "K"
         if lastxp >= 1000:
-            lastxp = lastxp / 1000
-            lastxp = round(lastxp, 1)
-            lastxp = str(lastxp) + "K"
+            if lastxp >= 1000000:
+                lastxp = lastxp / 1000000
+                lastxp = round(lastxp, 1)
+                lastxp = str(lastxp) + "M"
+            else:
+                lastxp = lastxp / 1000
+                lastxp = round(lastxp, 1)
+                lastxp = str(lastxp) + "K"
         with Image.open(BytesIO(await getavatar(user))) as im:
             im = im.resize((183, 183))
             if background == None:
@@ -72,22 +93,35 @@ async def rankcard(user, username, currentxp, lastxp, nextxp, level, rank, backg
                     with Image.new("L", im.size, 0) as mask:
                         mask_draw = ImageDraw.Draw(mask)
                         mask_draw.ellipse([(20, 20), im.size], fill=255)
-                        background.paste(rgbavatar, (19, 40), mask=mask)
+                        background.paste(rgbavatar, (20, 40), mask=mask)
                     draw.ellipse((160, 170, 208, 218), fill=0)
-                    if user.status == discord.Status.online:
-                        draw.ellipse((165, 175, 204, 214), fill=(68, 179, 127))
-                    elif user.status == discord.Status.offline:
-                        draw.ellipse((165, 175, 204, 214), fill=(116, 127, 141))
-                    elif user.status == discord.Status.dnd:
-                        draw.ellipse((165, 175, 204, 214), fill=(240, 72, 72))
+                    try:
+                        if user.status == discord.Status.online:
+                            draw.ellipse((165, 175, 204, 214), fill=(67,181,129))
+                        elif user.status == discord.Status.offline:
+                            draw.ellipse((165, 175, 204, 214), fill=(116, 127, 141))
+                        elif user.status == discord.Status.dnd:
+                            draw.ellipse((165, 175, 204, 214), fill=(240,71,71))
+                        elif user.status == discord.Status.idle:
+                            draw.ellipse((165, 175, 204, 214), fill=(250,166,26))
+                    except:
+                        draw.ellipse((165, 175, 204, 214), fill=(114,137,218))
+                    if len(username) > 12:
+                        changelen = len(username) - 12
+                        if changelen > -0:
+                            newlen = 50 - round(1*changelen)
+                        else:
+                            newlen = 50
+                        medium_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font")), newlen, encoding="utf-8")
                     draw.text((270, 130), "{}".format(username), (255, 255, 255), font=medium_font)
+                    medium_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font")), 50, encoding="utf-8")
                     xaxis = 740
                     if len(("{} / {} XP".format(currentxp, nextxp))) > 8:
                         changeaxis = len("{} / {} XP".format(currentxp, nextxp)) - 8
                         xaxis = 740 - (17*changeaxis)
                     draw.text((xaxis, 135), "{} / {} XP".format(currentxp, nextxp), (255, 255, 255), font=small_font)
                     xaxis = 740
-                    if len(("{} / {} XP".format(currentxp, nextxp))) > 8:
+                    if len("Rank #{} | Level {}".format(rank, level)) > 15:
                         changeaxis = len("Rank #{} | Level {}".format(rank, level)) - 8
                         xaxis = 740 - (23*changeaxis)
                     draw.text((xaxis, 55), "Rank #{} | Level {}".format(rank, level), (255, 255, 255), font=medium_font)
@@ -130,13 +164,15 @@ async def rankcard(user, username, currentxp, lastxp, nextxp, level, rank, backg
                     draw.ellipse((160, 170, 208, 218), fill=0)
                     try:
                         if user.status == discord.Status.online:
-                            draw.ellipse((165, 175, 204, 214), fill=(68, 179, 127))
+                            draw.ellipse((165, 175, 204, 214), fill=(67,181,129))
                         elif user.status == discord.Status.offline:
                             draw.ellipse((165, 175, 204, 214), fill=(116, 127, 141))
                         elif user.status == discord.Status.dnd:
-                            draw.ellipse((165, 175, 204, 214), fill=(240, 72, 72))
+                            draw.ellipse((165, 175, 204, 214), fill=(240,71,71))
+                        elif user.status == discord.Status.idle:
+                            draw.ellipse((165, 175, 204, 214), fill=(250,166,26))
                     except:
-                        draw.ellipse((165, 175, 204, 214), fill=(116, 127, 141))
+                        draw.ellipse((165, 175, 204, 214), fill=(114,137,218))
                     draw.text((270, 135), "{}".format(username), (255, 255, 255), font=medium_font)
                     xaxis = 740
                     if len(("{} / {} XP".format(currentxp, nextxp))) > 8:
@@ -154,8 +190,8 @@ async def rankcard(user, username, currentxp, lastxp, nextxp, level, rank, backg
                             colour = (37, 115, 189)
                     else:
                         colour = (37, 115, 189)
-                    x=257
-                    y=183
+                    x=258
+                    y=184
                     w=597
                     h=35
                     progress = (int(basecurrentxp) - int(baselastxp)) / (int(basenextxp)- int(baselastxp))
@@ -173,5 +209,5 @@ async def rankcard(user, username, currentxp, lastxp, nextxp, level, rank, backg
             background.save(final_buffer, "png")
 
         final_buffer.seek(0)
-
+        await checkversion()
         return final_buffer

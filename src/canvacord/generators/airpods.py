@@ -8,6 +8,7 @@ from random import randint
 from io import BytesIO
 import discord
 from typing import Union
+from canvacord.generators.versionchecker import checkversion
 
 async def getavatar(user: Union[discord.User, discord.Member]) -> bytes:
     session = aiohttp.ClientSession(loop=asyncio.get_event_loop())
@@ -48,4 +49,5 @@ async def airpods(user):
         out[0].save(b, format='gif', save_all=True, append_images=out[1:], loop=0, disposal=2, optimize=True,
                     duration=30, transparency=0)
         b.seek(0)
+        await checkversion()
         return b

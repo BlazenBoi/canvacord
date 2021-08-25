@@ -12,3 +12,5 @@ from .generators import america
 from .generators import bed
 from .generators import wanted
 from .generators import jokeoverhead
+from .generators import checkversion
+from .generators import avatar

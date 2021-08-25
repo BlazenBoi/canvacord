@@ -1,0 +1,9 @@
+AUTHORS.rst
+LICENSE
+README.rst
+pyproject.toml
+setup.py
+blazen.egg-info/PKG-INFO
+blazen.egg-info/SOURCES.txt
+blazen.egg-info/dependency_links.txt
+blazen.egg-info/top_level.txt

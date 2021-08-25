@@ -1,3 +1,20 @@
+Metadata-Version: 2.1
+Name: blazen
+Version: 0.2.51
+Summary: A Python Version of Canvacord
+Home-page: https://github.com/BlazenBoi/canvacord.py
+Author: blazen
+Author-email: contact@fireballbot.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: AUTHORS.rst
+
 [![Discord](https://discord.com/api/guilds/872291125547921459/embed.png)](https://discord.gg/mPU3HybBs9)
 [![PyPi](https://img.shields.io/pypi/v/canvacord.svg)](https://pypi.org/project/canvacord)
 [![Python](https://img.shields.io/pypi/pyversions/dislash.py.svg)](https://pypi.python.org/pypi/canvacord)
@@ -28,7 +45,7 @@ python -m pip install canvacord
 ```
 
 # Examples
-💡 This library requires **[discord.py](https://github.com/Rapptz/discord.py)**.
+ðŸ’¡ This library requires **[discord.py](https://github.com/Rapptz/discord.py)**.
 
 
 ## Creating-Images
@@ -40,7 +57,7 @@ import canvacord
 
 client = commands.Bot(command_prefix="!")
 
-@client.command()
+@client.comand()
 async def rankcard(ctx):
     user = ctx.author
     username = ctx.author.name + "#" + ctx.author.discriminator
@@ -54,35 +71,35 @@ async def rankcard(ctx):
     file = discord.File(filename="rankcard.png", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def triggered(ctx):
     user = ctx.author
     image = await canvacord.trigger(user)
     file = discord.File(filename="triggered.gif", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def communism(ctx):
     user = ctx.author
     image = await canvacord.communism(user)
     file = discord.File(filename="communism.gif", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def jail(ctx):
     user = ctx.author
     image = await canvacord.jail(user)
     file = discord.File(filename="jail.png", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def gay(ctx):
     user = ctx.author
     image = await canvacord.gay(user)
     file = discord.File(filename="gay.png", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def hitler(ctx):
     user = ctx.author
     image = await canvacord.hitler(user)
@@ -131,7 +148,7 @@ async def joke(ctx):
     file = discord.File(filename="jokeoverhead.png", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def spank(ctx):
     user1 = ctx.author
     user2 = ctx.author
@@ -139,7 +156,7 @@ async def spank(ctx):
     file = discord.File(filename="spank.png", fp=image)
     await ctx.send(file=file)
 
-@client.command()
+@client.comand()
 async def bed(ctx):
     user1 = ctx.author
     user2 = ctx.author
@@ -162,3 +179,5 @@ client.run("BOT_TOKEN")
 [![Downloads](https://pepy.tech/badge/canvacord)](https://pepy.tech/project/canvacord)
 [![Downloads](https://pepy.tech/badge/canvacord/month)](https://pepy.tech/project/canvacord)
 ![Downloads](https://pepy.tech/badge/canvacord/week)
+
+

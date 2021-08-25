@@ -1,6 +1,5 @@
 AUTHORS.rst
 LICENSE
-README.md
 README.rst
 pyproject.toml
 setup.cfg
@@ -14,6 +13,7 @@ src/canvacord/generators/aborted.py
 src/canvacord/generators/affect.py
 src/canvacord/generators/airpods.py
 src/canvacord/generators/america.py
+src/canvacord/generators/avatar.py
 src/canvacord/generators/bed.py
 src/canvacord/generators/communism.py
 src/canvacord/generators/gay.py
@@ -23,4 +23,5 @@ src/canvacord/generators/jokeoverhead.py
 src/canvacord/generators/rankcard.py
 src/canvacord/generators/spank.py
 src/canvacord/generators/trigger.py
+src/canvacord/generators/versionchecker.py
 src/canvacord/generators/wanted.py
