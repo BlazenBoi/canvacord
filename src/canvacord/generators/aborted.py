@@ -12,9 +12,15 @@ from canvacord.generators.versionchecker import checkversion
 
 async def getavatar(user: Union[discord.User, discord.Member]) -> bytes:
     session = aiohttp.ClientSession(loop=asyncio.get_event_loop())
-    async with session.get(str(user.avatar_url)) as response:
-        avatarbytes = await response.read()
-    await session.close()
+    disver = str(discord.__version__)
+    if disver.startswith("1"):
+        async with session.get(str(user.avatar_url)) as response:
+            avatarbytes = await response.read()
+        await session.close()
+    elif disver.startswith("2"):
+        async with session.get(str(user.server_avatar.url)) as response:
+            avatarbytes = await response.read()
+        await session.close()
     return avatarbytes
 
 async def getbackground(background):

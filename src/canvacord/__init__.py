@@ -1,3 +1,5 @@
+__version__ = "3.3.7"
+
 from .generators import rankcard
 from .generators import trigger
 from .generators import communism

@@ -1,17 +1,28 @@
 Metadata-Version: 2.1
 Name: canvacord
-Version: 0.2.74
+Version: 3.3.7
 Summary: A Python Version of Canvacord
-Home-page: https://github.com/BlazenBoi/canvacord.py
-Author: blazen
+Home-page: https://github.com/BlazenBoi/canvacord.py/issues
+Author: Blazen
 Author-email: contact@fireballbot.com
-License: UNKNOWN
-Project-URL: Bug Tracker, https://github.com/BlazenBoi/canvacord.py/issues
+License: MIT
 Project-URL: Discord Server, https://discord.com/invite/mPU3HybBs9
+Project-URL: Bug Tracker, https://github.com/BlazenBoi/canvacord.py/issues
+Project-URL: Source, https://github.com/BlazenBoi/canvacord
+Keywords: canvacord,rankcard,image manipulation,meme,discord,discordpy,discord-py
 Platform: UNKNOWN
-Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
 Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
@@ -47,7 +58,7 @@ python -m pip install canvacord
 ```
 
 # Examples
-💡 This library requires **[discord.py](https://github.com/Rapptz/discord.py)**.
+ðŸ’¡ This library requires **[discord.py](https://github.com/Rapptz/discord.py)**.
 
 
 ## Creating-Images

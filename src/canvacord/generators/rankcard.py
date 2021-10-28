@@ -11,39 +11,75 @@ from canvacord.generators.versionchecker import checkversion
 
 async def getavatar(user: Union[discord.User, discord.Member]) -> bytes:
     session = aiohttp.ClientSession(loop=asyncio.get_event_loop())
-    async with session.get(str(user.avatar_url)) as response:
-        avatarbytes = await response.read()
-    await session.close()
+    disver = str(discord.__version__)
+    if disver.startswith("1"):
+        async with session.get(str(user.avatar_url)) as response:
+            avatarbytes = await response.read()
+        await session.close()
+    elif disver.startswith("2"):
+        async with session.get(str(user.server_avatar.url)) as response:
+            avatarbytes = await response.read()
+        await session.close()
     return avatarbytes
 
 async def getbackground(background):
     session = aiohttp.ClientSession(loop=asyncio.get_event_loop())
-    async with session.get(str(background)) as response:
-        backgroundbytes = await response.read()
-    await session.close()
-    return backgroundbytes
-
-async def gettemplate(backtype):
-    session = aiohttp.ClientSession(loop=asyncio.get_event_loop())
-    if backtype == "normal":
+    try:
+        async with session.get(str(background)) as response:
+            backgroundbytes = await response.read()
+    except:
         background = "https://cdn.glitch.com/dff50ce1-3805-4fdb-a7a5-8cabd5e53756%2Fblankrank.png?v=1628032652421"
         async with session.get(str(background)) as response:
             backgroundbytes = await response.read()
-    elif backtype == "transparent":
-        background = "https://cdn.glitch.com/dff50ce1-3805-4fdb-a7a5-8cabd5e53756%2Fblankopacityrank.png?v=1628032645740"
-        async with session.get(str(background)) as response:
-            backgroundbytes = await response.read()
-    elif backtype == "font":
-        background = "https://cdn.glitch.com/dff50ce1-3805-4fdb-a7a5-8cabd5e53756%2FCalibri-Regular.ttf?v=1628033016557"
-        async with session.get(str(background)) as response:
-            backgroundbytes = await response.read()
     await session.close()
     return backgroundbytes
 
-async def rankcard(user, username, currentxp, lastxp, nextxp, level, rank, background=None):
-        big_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font")), 65, encoding="utf-8")
-        medium_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font")), 50, encoding="utf-8")
-        small_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font")), 40, encoding="utf-8")
+async def gettemplate(backtype, backdata=None):
+    session = aiohttp.ClientSession(loop=asyncio.get_event_loop())
+    if backdata == None:
+        if backtype == "normal":
+            background = "https://cdn.glitch.com/dff50ce1-3805-4fdb-a7a5-8cabd5e53756%2Fblankrank.png?v=1628032652421"
+            async with session.get(str(background)) as response:
+                backgroundbytes = await response.read()
+        elif backtype == "transparent":
+            background = "https://cdn.glitch.com/dff50ce1-3805-4fdb-a7a5-8cabd5e53756%2Fblankopacityrank.png?v=1628032645740"
+            async with session.get(str(background)) as response:
+                backgroundbytes = await response.read()
+        elif backtype == "font":
+            background = "https://cdn.glitch.com/dff50ce1-3805-4fdb-a7a5-8cabd5e53756%2FCalibri-Regular.ttf?v=1628033016557"
+            async with session.get(str(background)) as response:
+                backgroundbytes = await response.read()
+    else:
+        try:
+            if backtype == "normal":
+                async with session.get(str(backdata)) as response:
+                    backgroundbytes = await response.read()
+            elif backtype == "transparent":
+                async with session.get(str(backdata)) as response:
+                    backgroundbytes = await response.read()
+            elif backtype == "font":
+                async with session.get(str(backdata)) as response:
+                    backgroundbytes = await response.read()
+        except:
+            if backtype == "normal":
+                background = "https://cdn.glitch.com/dff50ce1-3805-4fdb-a7a5-8cabd5e53756%2Fblankrank.png?v=1628032652421"
+                async with session.get(str(background)) as response:
+                    backgroundbytes = await response.read()
+            elif backtype == "transparent":
+                background = "https://cdn.glitch.com/dff50ce1-3805-4fdb-a7a5-8cabd5e53756%2Fblankopacityrank.png?v=1628032645740"
+                async with session.get(str(background)) as response:
+                    backgroundbytes = await response.read()
+            elif backtype == "font":
+                background = "https://cdn.glitch.com/dff50ce1-3805-4fdb-a7a5-8cabd5e53756%2FCalibri-Regular.ttf?v=1628033016557"
+                async with session.get(str(background)) as response:
+                    backgroundbytes = await response.read()
+    await session.close()
+    return backgroundbytes
+
+async def rankcard(user, username, currentxp, lastxp, nextxp, level, rank, background=None, font=None, status=None):
+        big_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), 65, encoding="utf-8")
+        medium_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), 50, encoding="utf-8")
+        small_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), 40, encoding="utf-8")
         basecurrentxp = currentxp
         basenextxp = nextxp
         baselastxp = lastxp
@@ -96,14 +132,24 @@ async def rankcard(user, username, currentxp, lastxp, nextxp, level, rank, backg
                         background.paste(rgbavatar, (20, 40), mask=mask)
                     draw.ellipse((160, 170, 208, 218), fill=0)
                     try:
-                        if user.status == discord.Status.online:
-                            draw.ellipse((165, 175, 204, 214), fill=(67,181,129))
-                        elif user.status == discord.Status.offline:
-                            draw.ellipse((165, 175, 204, 214), fill=(116, 127, 141))
-                        elif user.status == discord.Status.dnd:
-                            draw.ellipse((165, 175, 204, 214), fill=(240,71,71))
-                        elif user.status == discord.Status.idle:
-                            draw.ellipse((165, 175, 204, 214), fill=(250,166,26))
+                        if status == None:
+                            if user.status == discord.Status.online:
+                                draw.ellipse((165, 175, 204, 214), fill=(67,181,129))
+                            elif user.status == discord.Status.offline:
+                                draw.ellipse((165, 175, 204, 214), fill=(116, 127, 141))
+                            elif user.status == discord.Status.dnd:
+                                draw.ellipse((165, 175, 204, 214), fill=(240,71,71))
+                            elif user.status == discord.Status.idle:
+                                draw.ellipse((165, 175, 204, 214), fill=(250,166,26))
+                        else:
+                            if status == "online":
+                                draw.ellipse((165, 175, 204, 214), fill=(67,181,129))
+                            elif status == "offline":
+                                draw.ellipse((165, 175, 204, 214), fill=(116, 127, 141))
+                            elif status == "dnd":
+                                draw.ellipse((165, 175, 204, 214), fill=(240,71,71))
+                            elif status == "idle":
+                                draw.ellipse((165, 175, 204, 214), fill=(250,166,26))
                     except:
                         draw.ellipse((165, 175, 204, 214), fill=(114,137,218))
                     if len(username) > 12:
@@ -112,9 +158,9 @@ async def rankcard(user, username, currentxp, lastxp, nextxp, level, rank, backg
                             newlen = 50 - round(1*changelen)
                         else:
                             newlen = 50
-                        medium_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font")), newlen, encoding="utf-8")
+                        medium_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), newlen, encoding="utf-8")
                     draw.text((270, 130), "{}".format(username), (255, 255, 255), font=medium_font)
-                    medium_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font")), 50, encoding="utf-8")
+                    medium_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), 50, encoding="utf-8")
                     xaxis = 740
                     if len(("{} / {} XP".format(currentxp, nextxp))) > 8:
                         changeaxis = len("{} / {} XP".format(currentxp, nextxp)) - 8
@@ -132,7 +178,7 @@ async def rankcard(user, username, currentxp, lastxp, nextxp, level, rank, backg
                     else:
                         colour = (37, 115, 189)
                     x=257
-                    y=183
+                    y=184
                     w=597
                     h=35
                     progress = (int(basecurrentxp) - int(baselastxp)) / (int(basenextxp)- int(baselastxp))

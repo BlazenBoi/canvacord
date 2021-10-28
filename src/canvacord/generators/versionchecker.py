@@ -5,11 +5,9 @@ import json
 try:
     from packaging.version import parse
 except ImportError:
-    print("\n Started Installing required Canvacord Package")
     from pip._vendor.packaging.version import parse
-    print("\n Finished Installing required Canvacord Package")
 
-thisversion = "0.2.74"
+thisversion = "3.3.7"
 
 async def checkversion():
         url_pattern = 'https://pypi.python.org/pypi/canvacord/json'
