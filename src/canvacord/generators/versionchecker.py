@@ -7,7 +7,7 @@ try:
 except ImportError:
     from pip._vendor.packaging.version import parse
 
-thisversion = "3.3.7"
+thisversion = "3.3.8"
 
 async def checkversion():
         url_pattern = 'https://pypi.python.org/pypi/canvacord/json'

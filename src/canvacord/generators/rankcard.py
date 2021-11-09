@@ -17,7 +17,7 @@ async def getavatar(user: Union[discord.User, discord.Member]) -> bytes:
             avatarbytes = await response.read()
         await session.close()
     elif disver.startswith("2"):
-        async with session.get(str(user.server_avatar.url)) as response:
+        async with session.get(str(user.display_avatar.url)) as response:
             avatarbytes = await response.read()
         await session.close()
     return avatarbytes
