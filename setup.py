@@ -27,8 +27,6 @@ setup(
     "pillow",
     "discord",
     "disnake",
-    "aiohttp",
-    "typing",
     "datetime",
     "requests"
     ],
