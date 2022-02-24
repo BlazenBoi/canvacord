@@ -1,1 +1,1 @@
-["wheel", "pillow", "discord", "asyncio", "aiohttp", "typing", "datetime"]
+["setuptools>=42","wheel","pillow","discord","disnake","datetime","requests"]
