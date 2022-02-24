@@ -25,6 +25,7 @@ setup(
     "setuptools>=42",
     "wheel",
     "pillow",
+    "discord",
     "disnake",
     "asyncio",
     "aiohttp",
