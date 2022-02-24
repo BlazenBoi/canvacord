@@ -27,10 +27,10 @@ setup(
     "pillow",
     "discord",
     "disnake",
-    "asyncio",
     "aiohttp",
     "typing",
-    "datetime"
+    "datetime",
+    "requests"
     ],
     project_urls={
         'Discord Server': 'https://discord.com/invite/mPU3HybBs9',
