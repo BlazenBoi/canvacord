@@ -8,7 +8,6 @@ from random import randint
 from io import BytesIO
 import discord
 from typing import Union
-from canvacord.generators.versionchecker import checkversion
 
 async def getavatar(user: Union[discord.User, discord.Member]) -> bytes:
     session = aiohttp.ClientSession(loop=asyncio.get_event_loop())
@@ -62,5 +61,4 @@ async def trigger(user):
         frames[0].save(b, save_all=True, append_images=frames[1:], format='gif', loop=0, duration=20, disposal=2,
                        optimize=True)
         b.seek(0)
-        await checkversion()
         return b

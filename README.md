@@ -50,7 +50,7 @@ async def rankcard(ctx):
     current_level = 1
     current_rank = 1
     background = None
-    image = await canvacord.rankcard(user=user, username=username, currentxp=currentxp, lastxp=lastxp, nextxp=nextxp, level=current_level, rank=current_rank, background=background)
+    image = await canvacord.rankcard(user=user, username=username, currentxp=currentxp, lastxp=lastxp, nextxp=nextxp, level=current_level, rank=current_rank, background=background, ranklevelsep="|", xpsep="/")
     file = discord.File(filename="rankcard.png", fp=image)
     await ctx.send(file=file)
 

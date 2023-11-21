@@ -7,7 +7,6 @@ import aiohttp
 from random import randint
 from io import BytesIO
 import discord
-from canvacord.generators.versionchecker import checkversion
 from typing import Union
 
 async def getavatar(user: Union[discord.User, discord.Member]) -> bytes:
@@ -39,5 +38,4 @@ async def jokeoverhead(user):
         b = BytesIO()
         base.save(b, format='png')
         b.seek(0)
-        await checkversion()
         return b

@@ -2,7 +2,6 @@ setuptools>=42
 wheel
 pillow
 discord
-asyncio
-aiohttp
-typing
+disnake
 datetime
+requests

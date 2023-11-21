@@ -10,7 +10,6 @@ Project-URL: Discord Server, https://discord.com/invite/mPU3HybBs9
 Project-URL: Bug Tracker, https://github.com/BlazenBoi/canvacord.py/issues
 Project-URL: Source, https://github.com/BlazenBoi/canvacord
 Keywords: canvacord,rankcard,image manipulation,meme,discord,discordpy,discord-py
-Platform: UNKNOWN
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Intended Audience :: Developers
 Classifier: Natural Language :: English
@@ -27,6 +26,13 @@ Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
 License-File: AUTHORS.rst
+Requires-Dist: setuptools>=42
+Requires-Dist: wheel
+Requires-Dist: pillow
+Requires-Dist: discord
+Requires-Dist: disnake
+Requires-Dist: datetime
+Requires-Dist: requests
 
 [![Discord](https://discord.com/api/guilds/872291125547921459/embed.png)](https://discord.gg/mPU3HybBs9)
 [![PyPi](https://img.shields.io/pypi/v/canvacord.svg)](https://pypi.org/project/canvacord)
@@ -192,5 +198,3 @@ client.run("BOT_TOKEN")
 [![Downloads](https://pepy.tech/badge/canvacord)](https://pepy.tech/project/canvacord)
 [![Downloads](https://pepy.tech/badge/canvacord/month)](https://pepy.tech/project/canvacord)
 ![Downloads](https://pepy.tech/badge/canvacord/week)
-
-

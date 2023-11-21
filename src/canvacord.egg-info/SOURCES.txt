@@ -24,5 +24,4 @@ src/canvacord/generators/jokeoverhead.py
 src/canvacord/generators/rankcard.py
 src/canvacord/generators/spank.py
 src/canvacord/generators/trigger.py
-src/canvacord/generators/versionchecker.py
 src/canvacord/generators/wanted.py
