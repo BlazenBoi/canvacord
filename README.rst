@@ -55,8 +55,14 @@ Creating-Images
         current_level = 1
         current_rank = 1
         background = None
-        image = await canvacord.rankcard(user=user, username=username, currentxp=currentxp, lastxp=lastxp, nextxp=nextxp, level=current_level, rank=current_rank, background=background)
+        image = await canvacord.rankcard(user=user, username=username, currentxp=currentxp, lastxp=lastxp, nextxp=nextxp, level=current_level, rank=current_rank, background=background, ranklevelsep="|", xpsep="/")
         file = discord.File(filename="rankcard.png", fp=image)
+        await ctx.send(file=file)
+
+    @client.command()
+    async def welcomecard(ctx):
+        image = await canvacord.welcomecard(user=ctx.author, background=None, avatarcolor="white", topcolor="white", bottomcolor="white", backgroundcolor="black", font=None, toptext="Welcome {user_name}!", bottomtext="Enjoy your stay in {server}!")
+        file = discord.File(filename="welcomecard.png", fp=image)
         await ctx.send(file=file)
 
     @client.comand()

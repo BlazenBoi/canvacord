@@ -5,3 +5,4 @@ discord
 disnake
 datetime
 requests
+colour

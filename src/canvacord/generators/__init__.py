@@ -13,3 +13,4 @@ from .bed import bed
 from .wanted import wanted
 from .jokeoverhead import jokeoverhead
 from .avatar import avatar
+from .welcomecard import welcomecard

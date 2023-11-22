@@ -2,9 +2,7 @@ AUTHORS.rst
 LICENSE
 README.md
 README.rst
-pyproject.toml
 setup.py
-canvacord/__init__.py
 canvacord.egg-info/PKG-INFO
 canvacord.egg-info/SOURCES.txt
 canvacord.egg-info/dependency_links.txt

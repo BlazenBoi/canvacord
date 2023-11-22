@@ -84,47 +84,80 @@ async def rankcard(user:discord.Member, username="Name", currentxp=1, lastxp=1, 
         basecurrentxp = currentxp
         basenextxp = nextxp
         baselastxp = lastxp
-        if level >= 1000000:
-            if level >= 1000000:
+        if level >= 1000:
+            if level >= 1000000000000:
+                level = level / 1000000000000
+                level = round(level, 2)
+                level = str(level) + "T"
+            elif level >= 1000000000:
+                level = level / 1000000000
+                level = round(level, 2)
+                level = str(level) + "B"
+            elif level >= 1000000:
                 level = level / 1000000
-                level = round(level, 1)
+                level = round(level, 2)
                 level = str(level) + "M"
             else:
                 level = level / 1000
-                level = round(level, 1)
+                level = round(level, 2)
                 level = str(level) + "K"
         else:
             level = str(level)
         if currentxp >= 1000:
-            if currentxp >= 1000000:
+            if currentxp >= 1000000000000:
+                currentxp = currentxp / 1000000000000
+                currentxp = round(currentxp, 2)
+                currentxp = str(currentxp) + "T"
+            if currentxp >= 1000000000:
+                currentxp = currentxp / 1000000000
+                currentxp = round(currentxp, 2)
+                currentxp = str(currentxp) + "B"
+            elif currentxp >= 1000000:
                 currentxp = currentxp / 1000000
-                currentxp = round(currentxp, 1)
+                currentxp = round(currentxp, 2)
                 currentxp = str(currentxp) + "M"
             else:
                 currentxp = currentxp / 1000
-                currentxp = round(currentxp, 1)
+                currentxp = round(currentxp, 2)
                 currentxp = str(currentxp) + "K"
         if nextxp >= 1000:
-            if nextxp >= 1000000:
+            if nextxp >= 1000000000000:
+                nextxp = nextxp / 1000000000000
+                nextxp = round(nextxp, 2)
+                nextxp = str(nextxp) + "T"
+            elif nextxp >= 1000000000:
+                nextxp = nextxp / 1000000000
+                nextxp = round(nextxp, 2)
+                nextxp = str(nextxp) + "B"
+            elif nextxp >= 1000000:
                 nextxp = nextxp / 1000000
-                nextxp = round(nextxp, 1)
+                nextxp = round(nextxp, 2)
                 nextxp = str(nextxp) + "M"
             else:
                 nextxp = nextxp / 1000
-                nextxp = round(nextxp, 1)
+                nextxp = round(nextxp, 2)
                 nextxp = str(nextxp) + "K"
         if lastxp >= 1000:
-            if lastxp >= 1000000:
+            if lastxp >= 1000000000000:
+                lastxp = lastxp / 1000000000000
+                lastxp = round(lastxp, 2)
+                lastxp = str(lastxp) + "T"
+            elif lastxp >= 1000000000:
+                lastxp = lastxp / 1000000000
+                lastxp = round(lastxp, 2)
+                lastxp = str(lastxp) + "B"
+            elif lastxp >= 1000000:
                 lastxp = lastxp / 1000000
-                lastxp = round(lastxp, 1)
+                lastxp = round(lastxp, 2)
                 lastxp = str(lastxp) + "M"
             else:
                 lastxp = lastxp / 1000
-                lastxp = round(lastxp, 1)
+                lastxp = round(lastxp, 2)
                 lastxp = str(lastxp) + "K"
         with Image.open(BytesIO(await getavatar(user))) as im:
-                    im = im.resize((183, 183))
+                    im = im.resize((168, 168))
                     rgbavatar = im.convert("RGB")
+                    origbackground = background
                     if background == None:
                         with Image.open(BytesIO(await gettemplate("normal"))).convert('RGB') as background:
                             draw = ImageDraw.Draw(background)
@@ -138,11 +171,11 @@ async def rankcard(user:discord.Member, username="Name", currentxp=1, lastxp=1, 
                             width = (background.width - newbackground.width) // 2
                             height = (background.height - newbackground.height) // 2
                             background.paste(opacity, (width, height), opacity)
-                            draw.ellipse((35, 57, 206, 226), fill=0)
+                            draw.ellipse((34, 54, 208, 228), fill=0)
                     with Image.new("L", im.size, 0) as mask:
                         mask_draw = ImageDraw.Draw(mask)
-                        mask_draw.ellipse([(20, 20), im.size], fill=255)
-                        background.paste(rgbavatar, (20, 40), mask=mask)
+                        mask_draw.ellipse([(0, 0), im.size], fill=255)
+                        background.paste(rgbavatar, (37, 57), mask=mask)
                     draw.ellipse((160, 170, 208, 218), fill=0)
                     try:
                         if status == None:
@@ -165,25 +198,33 @@ async def rankcard(user:discord.Member, username="Name", currentxp=1, lastxp=1, 
                                 draw.ellipse((165, 175, 204, 214), fill=(250,166,26))
                     except:
                         draw.ellipse((165, 175, 204, 214), fill=(114,137,218))
-                    if len(username) > 12:
-                        changelen = len(username) - 12
-                        if changelen > -0:
-                            newlen = 50 - round(1*changelen)
-                        else:
-                            newlen = 50
-                        medium_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), newlen, encoding="utf-8")
-                    draw.text((270, 130), "{}".format(username), (255, 255, 255), font=medium_font)
-                    medium_font = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), 50, encoding="utf-8")
-                    xaxis = 740
-                    if len(("{} / {} XP".format(currentxp, nextxp))) > 8:
-                        changeaxis = len("{} {} {} XP".format(currentxp, xpsep, nextxp)) - 8
-                        xaxis = 740 - (17*changeaxis)
-                    draw.text((xaxis, 135), "{} {} {} XP".format(currentxp, xpsep, nextxp), (255, 255, 255), font=small_font)
-                    xaxis = 740
-                    if len("Rank {} | Level {}".format(rank, level)) > 15:
-                        changeaxis = len("Rank {} {} Level {}".format(rank, ranklevelsep, level)) - 8
-                        xaxis = 740 - (23*changeaxis)
-                    draw.text((xaxis, 55), "Rank {} {} Level {}".format(rank, ranklevelsep, level), (255, 255, 255), font=medium_font)
+                    medium_font_1 = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), 50, encoding="utf-8")
+                    wname = medium_font_1.getlength("{}".format(username))
+                    if wname > 295:
+                        fontsize = 50
+                        while wname > 295:
+                            fontsize = fontsize - 5
+                            medium_font_1 = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), fontsize, encoding="utf-8")
+                            wname = medium_font_1.getlength("{}".format(username))
+                    small_font_2 = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), 40, encoding="utf-8")
+                    wxp = small_font_2.getlength("{} {} {} XP".format(currentxp, xpsep, nextxp))
+                    if wxp > 295:
+                        fontsize = 50
+                        while wxp > 295:
+                            fontsize = fontsize - 5
+                            small_font_2 = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), fontsize, encoding="utf-8")
+                            wxp = small_font_2.getlength("{} {} {} XP".format(currentxp, xpsep, nextxp))
+                    medium_font_2 = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), 50, encoding="utf-8")
+                    wlevel = medium_font_2.getlength("Rank {} {} Level {}".format(rank, ranklevelsep, level))
+                    if wlevel > 600:
+                        fontsize = 50
+                        while wlevel > 600:
+                            fontsize = fontsize - 5
+                            medium_font_2 = ImageFont.FreeTypeFont(BytesIO(await gettemplate("font", font)), fontsize, encoding="utf-8")
+                            wlevel = medium_font_2.getlength("Rank {} {} Level {}".format(rank, ranklevelsep, level))
+                    draw.text((270, 165), "{}".format(username), (255, 255, 255), anchor="ls", font=medium_font_1)
+                    draw.text((875, 165), "{} {} {} XP".format(currentxp, xpsep, nextxp), (255, 255, 255),  anchor="rs", font=small_font_2)
+                    draw.text((875, 55), "Rank {} {} Level {}".format(rank, ranklevelsep, level), (255, 255, 255), anchor="rt", font=medium_font_2)
                     if isinstance(user, discord.Member) or isinstance(user, discord.User):
                         colour = user.colour.to_rgb()
                         if colour == (0, 0, 0):
@@ -193,13 +234,16 @@ async def rankcard(user:discord.Member, username="Name", currentxp=1, lastxp=1, 
                     x=257
                     y=183
                     w=597
-                    h=35
+                    if origbackground == None:
+                        h=36
+                    else:
+                        h=35
                     progress = (int(basecurrentxp) - int(baselastxp)) / (int(basenextxp)- int(baselastxp))
                     '''PROGRESS'''
                     if(progress<=0):        
-                        progress = 0.01    
+                        progress = 0
                     if(progress>1):        
-                        progress=.99
+                        progress=1
                     w = w*progress    
                     draw.ellipse((x+w, y, x+h+w, y+h),fill=colour)
                     draw.ellipse((x, y, x+h, y+h),fill=colour)

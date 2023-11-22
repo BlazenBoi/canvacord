@@ -25,3 +25,4 @@ src/canvacord/generators/rankcard.py
 src/canvacord/generators/spank.py
 src/canvacord/generators/trigger.py
 src/canvacord/generators/wanted.py
+src/canvacord/generators/welcomecard.py

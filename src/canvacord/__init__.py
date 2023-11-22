@@ -1,4 +1,4 @@
-__version__ = "3.3.8"
+__version__ = "3.4.9"
 
 from .generators import rankcard
 from .generators import trigger
@@ -15,3 +15,4 @@ from .generators import bed
 from .generators import wanted
 from .generators import jokeoverhead
 from .generators import avatar
+from .generators import welcomecard

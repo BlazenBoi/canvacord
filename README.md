@@ -55,6 +55,12 @@ async def rankcard(ctx):
     await ctx.send(file=file)
 
 @client.command()
+async def welcomecard(ctx):
+    image = await canvacord.welcomecard(user=ctx.author, background=None, avatarcolor="white", topcolor="white", bottomcolor="white", backgroundcolor="black", font=None, toptext="Welcome {user_name}!", bottomtext="Enjoy your stay in {server}!")
+    file = discord.File(filename="welcomecard.png", fp=image)
+    await ctx.send(file=file)
+
+@client.command()
 async def triggered(ctx):
     user = ctx.author
     image = await canvacord.trigger(user)
